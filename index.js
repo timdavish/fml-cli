@@ -44,7 +44,7 @@ const cli = meow({
 
 run(cli.input, cli.flags);
 
-async function run (input, flags) {
+function run (input, flags) {
   const command = input[0];
   const search = flags.search;
 
@@ -56,10 +56,11 @@ async function run (input, flags) {
     url = `http://fmylife.com/search/${encodeURIComponent(search)}`
   }
 
-  const res = await request.get(url);
-  const fml = loadFml(res.body);
+  request.get(url).then(res => {
+    const fml = loadFml(res.body);
 
-  console.log(chalk.blue(fml))
+    console.log(chalk.blue(fml));
+  });
 }
 
 function loadFml (body) {
