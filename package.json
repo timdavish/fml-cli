@@ -1,24 +1,23 @@
 {
   "name": "fml-cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "cli for serving fml stories to your terminal",
-  "main": "index.js",
+  "license": "MIT",
+  "repository": "timdavish/fml-cli",
+  "author": "Tim Davis",
+  "engines": {
+    "node": ">=6"
+  },
+  "bin": {
+    "fml": "./index.js"
+  },
   "scripts": {
     "test": "ava"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/timdavish/fml-cli.git"
   },
   "keywords": [
     "fml",
     "cli"
   ],
-  "author": "Tim Davis",
-  "license": "MIT",
-  "bin": {
-    "fml": "./index.js"
-  },
   "dependencies": {
     "chalk": "^2.3.0",
     "cheerio": "^1.0.0-rc.2",
