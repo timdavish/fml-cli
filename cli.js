@@ -4,7 +4,9 @@
 const chalk = require('chalk');
 const meow = require('meow');
 const request = require('snekfetch');
-const $ = require('cheerio').load;
+const cheerio = require('cheerio');
+
+const $ = cheerio.load;
 
 const cli = meow({
   description: false,
@@ -12,8 +14,11 @@ const cli = meow({
     Usage
       ${chalk.yellow('fml [command] [option]')}
 
+      The command argument is optional. If no command is given, the
+      random command will be run.
+
     Commands
-      ${chalk.yellow('*, random')}            Serve random fml
+      ${chalk.yellow('random')}               Serve random fml
       ${chalk.yellow('top')}                  Serve top fml
 
     Options
@@ -44,23 +49,22 @@ const cli = meow({
 
 run(cli.input, cli.flags);
 
-function run (input, flags) {
+async function run (input, flags) {
   const command = input[0];
   const search = flags.search;
 
   let url = 'http://fmylife.com/random';
 
   if (command === 'top') {
-    url = 'http://fmylife.com/tops/top'
+    url = 'http://fmylife.com/tops/top';
   } else if (search) {
-    url = `http://fmylife.com/search/${encodeURIComponent(search)}`
+    url = `http://fmylife.com/search/${encodeURIComponent(search)}`;
   }
 
-  request.get(url).then(res => {
-    const fml = loadFml(res.body);
+  const res = await request.get(url);
+  const fml = loadFml(res.body);
 
-    console.log(chalk.blue(fml));
-  });
+  console.log(chalk.blue(fml));
 }
 
 function loadFml (body) {
