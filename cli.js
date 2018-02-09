@@ -14,8 +14,8 @@ const cli = meow({
     Usage
       ${chalk.yellow('fml [command] [option]')}
 
-      The command argument is optional. If no command is given, the
-      random command will be run.
+      The command argument is optional. If no command is provided,
+      then the ${chalk.yellow('random')} command will be run by default.
 
     Commands
       ${chalk.yellow('random')}               Serve random fml

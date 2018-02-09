@@ -1,6 +1,6 @@
 {
   "name": "fml-cli",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "cli for serving fml stories to your terminal",
   "license": "MIT",
   "repository": "timdavish/fml-cli",

@@ -16,8 +16,8 @@ $ fml --help
   Usage
     fml [command] [option]
 
-    The command argument is optional. If no command is given, the
-    random command will be run.
+    The command argument is optional. If no command is provided,
+    then the random command will be run by default.
 
   Commands
     random               Serve random fml
