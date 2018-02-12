@@ -10,7 +10,7 @@ $ npm install -g fml-cli
 
 ## Usage
 
-```bash
+```
 $ fml --help
 
   Usage
